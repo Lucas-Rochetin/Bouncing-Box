@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html style='background-color: black'>
+  <div id="my_bouncing_box" style= "background-color: blue; border-radius: 3px; position: absolute; left: 0px; top: 0px; min-width: 100px; min-height: 100px; text-align: center; font-weight: bold; color: #999;" >rochetin_l</div>
+  <script type="text/javascript">
+
+    my_box = document.getElementById("my_bouncing_box");
+
+    window.onload = function () {
+
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+
+        const interval = setInterval(moveElement, 1);
+    
+        var x = parseInt(my_box.style.left);
+        var y = parseInt(my_box.style.top);
+
+        var vertical = 1;
+        var horizontal = 1;
+
+        function moveElement() {
+
+            x = x + horizontal;
+            y = y + vertical;
+
+            my_box.style.top = y + 'px';
+            my_box.style.left = x + 'px'; 
+
+            if (x == 0) {
+            horizontal = -horizontal;
+            }
+            if (y == 0) {
+            vertical = -vertical;
+            }
+            if (x + 100 > width) {
+            horizontal = -horizontal;
+          
+            }
+            if (y + 100 > height) {
+            vertical = -vertical;
+            }
+        }   
+    }
+  </script>
+</html>
